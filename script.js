@@ -163,18 +163,6 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('olya-sprite').addEventListener('click', makeOlyaReact);
   }
 
-    // --- ОТКЛЮЧЕНИЕ МУЗЫКИ ПРИ ПЕРЕХОДЕ ПО БАННЕРУ ---
-     const siteLink = document.getElementById('site-link');
-
-    if (siteLink) {
-        siteLink.addEventListener('click', () => {
-            if (music) {
-                music.pause();
-                console.log("Музыка остановлена пользователем.");
-            }
-        });
-    }
-
     const muteBtn = document.getElementById('mute-btn');
     if (muteBtn) {
         muteBtn.addEventListener('click', (e) => {
@@ -185,6 +173,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
 
 
