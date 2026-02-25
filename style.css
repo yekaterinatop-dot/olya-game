@@ -71,7 +71,7 @@ body {
     color: white;
     padding: 5px 10px;
     bottom: 0%;
-    left: 45%;
+    left: 50%;
     transform: translateX(-50%);
     border-radius: 10px;
     z-index: 3;
@@ -116,8 +116,8 @@ body {
 /* Обновляем контейнер для кнопок */
 .choice-buttons {
     position: absolute;
-    top: 10%; /* Располагаем сверху */
-    left: 45%; /* Центрируем по горизонтали */
+    top: 38%; /* Располагаем сверху */
+    left: 50%; /* Центрируем по горизонтали */
     transform: translateX(-50%);
     display: flex;
     flex-direction: column; /* Вертикальное расположение */
@@ -148,9 +148,66 @@ body {
     padding-top: 0%; /* Создаем пространство сверху для кнопок */
 }
 
+.mute-toggle {
+    position: fixed;
+    top: 10px;
+    right: 465px;
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.7); /* Темный фон, чтобы выделялась */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10000; /* Самый высокий приоритет в игре */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* Убираем синюю рамку на смартфонах */
+}
+
+.mute-toggle:active {
+    transform: scale(0.9); /* Эффект нажатия */
+}
+
+.top-banner {
+    position: fixed;
+    top: -100px; /* Прячем за верхним краем */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #800000, #330000); /* Красивый бордовый градиент */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 0 0 15px 15px; /* Закругляем только низ */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    z-index: 10001;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: top 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Плавный выезд с «отскоком» */
+    border: 1px solid rgba(255,215,0,0.3); /* Легкая золотистая рамка */
+}
+
+.top-banner.show {
+    top: 0; /* Показываем */
+}
+
+.top-banner:hover {
+    background: linear-gradient(45deg, #a00000, #440000);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+}
+
 /* --- АДАПТАЦИЯ ДЛЯ МОБИЛЬНЫХ --- */
 @media screen and (max-width: 768px) {
-    
+      .mute-toggle {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px
+}
+
     /* 1. Убираем черные отступы по бокам */
     .background-container {
         width: 100vw !important; /* Растягиваем контейнер на всю ширину окна */
@@ -162,10 +219,10 @@ body {
 
     /* 2. Растягиваем само изображение фона */
     .background-image {
-        width: 100vw !important;
+        width: auto !important;
         height: 100vh !important;
         margin-left: 0 !important; /* Убираем твои 25% отступа */
-        object-fit: cover; /* Это важно: картинка заполнит экран без черных полос */
+        object-fit: contain; /* Это важно: картинка заполнит экран без черных полос */
     }
 
     /* 3. Центрируем персонажа для мобильных */
@@ -176,8 +233,10 @@ body {
     }
 
     .character img {
-        width: 80vw !important; /* Оля будет занимать 80% ширины экрана телефона */
-        max-width: 350px;
+        height: 80vh !important;
+        width: auto !important;
+        max-width: none;
+        display: block;
     }
 
     /* 4. Вспышка на весь экран (без черных полос по бокам) */
