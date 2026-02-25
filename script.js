@@ -188,6 +188,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// Останавливаем музыку, если вкладка стала невидимой (свернули браузер или перешли на другой сайт)
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        if (music) {
+            music.pause();
+            console.log("Вкладка скрыта, музыка остановлена");
+        }
+    }
+});
+
+// Дополнительная страховка для мобильных браузеров (событие ухода со страницы)
+window.addEventListener('pagehide', () => {
+    if (music) {
+        music.pause();
+    }
+});
+
+
 
 
 
