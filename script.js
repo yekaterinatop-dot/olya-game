@@ -160,8 +160,22 @@ window.addEventListener('DOMContentLoaded', () => {
         typeWriter("Выбери вопрос для Оли:", 'dialogue-text', 30);
     });
 
-    document.getElementById('olya-sprite').addEventListener('click', makeOlyaReact);
-  }
+    // Клик по персонажу
+    const olyaSprite = document.getElementById('olya-sprite');
+    if (olyaSprite) {
+        olyaSprite.addEventListener('click', makeOlyaReact);
+    }
+
+    // ВЫКЛЮЧАТЕЛЬ МУЗЫКИ (ИСПРАВЛЕННЫЙ)
+    const siteLink = document.getElementById('site-link');
+    if (siteLink) {
+        siteLink.addEventListener('click', () => {
+            if (music) {
+                music.pause();
+                console.log("Музыка остановлена");
+            }
+        });
+    }
 
     const muteBtn = document.getElementById('mute-btn');
     if (muteBtn) {
@@ -173,6 +187,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
 
 
