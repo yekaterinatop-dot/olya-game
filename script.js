@@ -1,3 +1,18 @@
+// Предзагрузка всех спрайтов Оли, чтобы они не "тупили" на телефонах
+const preloadImages = [
+    "olya_surprised.png",
+    "olya_defend.png",
+    "olya_thinking.png",
+    "olya_serious.png",
+    "olya_story.png",
+    "olya_sad.png"
+];
+
+preloadImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+
 const dialogues = {
     1: "Оля... Но для некоторых я просто нелюдимая девочка.",
     2: "Она защищает то, что внутри... То, что нельзя показывать.",
@@ -155,4 +170,5 @@ window.addEventListener('DOMContentLoaded', () => {
             muteBtn.innerText = music.muted ? "🔇" : "🔊";
         });
     }
+
 });
