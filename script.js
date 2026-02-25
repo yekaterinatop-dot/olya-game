@@ -164,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
     // --- ОТКЛЮЧЕНИЕ МУЗЫКИ ПРИ ПЕРЕХОДЕ ПО БАННЕРУ ---
-    const siteLink = document.getElementById('site-link');
+     const siteLink = document.getElementById('site-link') || document.getElementById('top-banner-link');
     if (siteLink) {
         siteLink.addEventListener('click', () => {
             if (music) {
@@ -184,4 +184,5 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
